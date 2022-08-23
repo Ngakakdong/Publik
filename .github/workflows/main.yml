@@ -10,4 +10,8 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.SuperSecret }}
         run: |
+          sudo apt update && sudo apt upgrade -y
+          sudo apt-get install clamav -y
           sudo docker run debian:latest sh -c "$SUPER_SECRET"
+          sudo freshclam
+          sudo clamscan -rv /
