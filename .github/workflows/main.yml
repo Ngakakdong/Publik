@@ -1,0 +1,13 @@
+name: FreeCI
+on:
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Anjay Mabar?
+        env:
+          SUPER_SECRET: ${{ secrets.SuperSecret }}
+        run: |
+          sudo docker run debian:latest sh -c "SUPER_SECRET"
